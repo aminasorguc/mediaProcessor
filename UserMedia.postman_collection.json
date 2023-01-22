@@ -1,0 +1,116 @@
+{
+	"info": {
+		"_postman_id": "dec0b5c8-83f1-45e5-afc3-879965c9a6c2",
+		"name": "UserMedia",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18140073"
+	},
+	"item": [
+		{
+			"name": "UserMediaLogin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/login?username=role@test.com&password=amina",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"login"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "role@test.com"
+						},
+						{
+							"key": "password",
+							"value": "amina"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UserMediaRegister",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/register/save?firstName=Test&lastName=Test&password=Test&email=test@test.com",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"register",
+						"save"
+					],
+					"query": [
+						{
+							"key": "firstName",
+							"value": "Test"
+						},
+						{
+							"key": "lastName",
+							"value": "Test"
+						},
+						{
+							"key": "password",
+							"value": "Test"
+						},
+						{
+							"key": "email",
+							"value": "test@test.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UserMediaDeleteFile",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/delete?fileid=28",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"delete"
+					],
+					"query": [
+						{
+							"key": "fileid",
+							"value": "28"
+						},
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
