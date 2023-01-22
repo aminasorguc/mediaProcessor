@@ -27,38 +27,28 @@ public class Algorithms {
 	    return value;
 	}
 	
-	public int findSmallestMissingNo(int []arr, int n, int k){
-        int currval;
-        int nextval;
-        int result;
-
+	public int findSmallestMissingNo(int []arr, int n, int k) {
         int duplicates = findDuplicate(arr, n, k);
-     
-        for (int i = 0; i < n; i++) {
-            if (arr[i] <= 0 || arr[i] > n)
-                continue;
-            currval = arr[i];
-            while (arr[currval - 1] != currval) {
-                nextval = arr[currval - 1];
-                arr[currval - 1] = currval;
-                currval = nextval;
-                if (currval <= 0 || currval > n)
-                    break;
+        int min = 1;
+        Arrays.sort(arr);
+   
+        if(arr[n-1] > 0) {
+            for(int i = 0; i < n; i++){
+                if(arr[i] > 0){
+                    if(arr[i] == min) {
+                    	min = min + 1;
+                    }
+                    if(arr[i] > min) {
+                    	break;
+                    }
+                }
             }
         }
-        for (int i = 0; i < n; i++) {
-            if (arr[i] != i + 1) {
-            	if(duplicates > i + 1) {
-            		arr[i] = i + 1;
-            		result = findSmallestMissingNo(arr, arr.length, k);
-            	} else {
-            		result = i + 1;
-            	}
-                return result;
-            }
+        if(duplicates > min ) {
+        	arr[n - 1] = min;
+        	min = findSmallestMissingNo(arr, arr.length, k);
         }
-        result = n + 1;
-        return result;
+        return min;
     }
 	
 	public int findDuplicate(int arr[], int n, int k) {
@@ -76,7 +66,6 @@ public class Algorithms {
             }
             i = j;
         }
-        return -1;
+        return 0;
     }
-     
 }
